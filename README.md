@@ -1,6 +1,8 @@
-# Grimm Site
+# Grimm's Site
 
 <img src="/repo-assets/showcase.gif"/>
+
+This is **NOT** a static site that can be ran on cloudflare/github pages. I **AM** a redpilled $5 VPS fren. I will **NOT** use "serverless", it's literally servers but without the "fun". That being said, I like cloudflare/github pages, last version of my site was using cf pages.
 
 This is a project using [goravel](https://github.com/goravel/goravel) and [claude](https://claude.ai/) (actually surprised claude knew what goravel was), as I was just working on a project using [Laravel](https://laravel.com/) and have been wanting to rework my personal site using go. Blog posts are written in markdown and can be stored in [/content/posts/](./content/posts/) folder for local file rendering, or in [/storage/app/blog-posts/](./storage/app/blog-posts/) for use with a database if you so please.
 
@@ -82,6 +84,56 @@ The Following files and folders need to be uploaded to the server during deploym
 ./content 
 ```
 
+### Docker/Podman
+
+Goravel come's with a [Dockerfile](/Dockerfile) and a [docker-compose](/docker-compose.yml) that can be used to containerize the app. Can just replace podman with docker (usually need to run with sudo).
+
+#### Building using the Dockerfile
+
+While in the directory with the file.
+
+```bash
+# Build 
+podman build -t goravel-app .
+
+# Run
+podman run -p 8080:3000 --name goravel-container goravel-app
+
+# Running Detached
+podman run -d -p 8080:3000 --name goravel-container goravel-app
+
+# Stopping the docker container 
+podman stop goravel-container
+
+# Starting container 
+podman start goravel-container
+
+# Removing container 
+podman rm goravel-container
+
+# Remove image
+podman images
+podman rmi {image name|id}
+```
+
+#### Building using docker-compose
+
+While in the directory in the with the file.
+
+```bash 
+# Build and Run 
+podman-compose up 
+
+# Run Detached
+podman-compose up -d
+
+# Stop and remove container 
+podman-compose down 
+
+# Remove image
+podman images
+podman rmi {image name|id}
+```
 
 ## About Goravel
 
