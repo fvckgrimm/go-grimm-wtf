@@ -1,0 +1,145 @@
+/* Add this to your CSS file */
+.post-content h1 { font-size: 2em; margin-top: 0.67em; margin-bottom: 0.67em; }
+.post-content h2 { font-size: 1.5em; margin-top: 0.83em; margin-bottom: 0.83em; }
+.post-content h3 { font-size: 1.17em; margin-top: 1em; margin-bottom: 1em; }
+.post-content h4 { font-size: 1em; margin-top: 1.33em; margin-bottom: 1.33em; }
+.post-content h5 { font-size: .83em; margin-top: 1.67em; margin-bottom: 1.67em; }
+.post-content h6 { font-size: .67em; margin-top: 2.33em; margin-bottom: 2.33em; }
+.post-content p { margin-top: 1em; margin-bottom: 1em; }
+
+.post-content {
+    color: var(--fg);
+    background-color: var(--bg);
+}
+
+.post-content pre { 
+    background-color: var(--code-bg-color); 
+    color: var(--code-text-color); 
+    padding: 1em; overflow-x: auto; 
+    border-radius: 10px;
+}
+
+.post-content code {
+    background-color: var(--code-bg-color);
+    color: var(--code-text-color);
+    padding: 0.2em 0.4em;
+    border-radius: 10px;
+}
+
+.post-content blockquote {
+    border-left: 4px solid var(--accent);
+    color: var(--blockquote-text-color);
+    background-color: var(--blockquote-bg-color);
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    border-radius: 10px;
+}
+
+.post-content ul, .post-content ol {
+    margin-bottom: 1em;
+    padding-left: 2em;
+}
+
+.post-content ul {
+    list-style-type: disc;
+}
+
+.post-content ol {
+    list-style-type: decimal;
+}
+
+.post-content ul ul, .post-content ol ul {
+    list-style-type: circle;
+}
+
+.post-content ul ul ul, .post-content ol ul ul {
+    list-style-type: square;
+}
+
+.post-content ol ol, .post-content ul ol {
+    list-style-type: lower-alpha;
+}
+
+.post-content ol ol ol, .post-content ul ol ol {
+    list-style-type: lower-roman;
+}
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: var(--code-text-color);
+    background: var(--code-bg-color);
+    text-shadow: none;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: var(--syntax-comment);
+}
+
+.token.punctuation {
+    color: var(--syntax-punctuation);
+}
+
+.token.selector,
+.token.tag {
+    color: var(--syntax-tag);
+}
+
+
+.token.property,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.attr-name,
+.token.deleted {
+    color: var(--syntax-constant);
+}
+
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.builtin,
+.token.inserted {
+    color: var(--syntax-string);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: var(--syntax-operator);
+}
+
+.token.atrule,
+.token.keyword {
+    color: var(--syntax-keyword);
+}
+
+.token.function {
+    color: var(--syntax-function);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: var(--syntax-keyword);
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}

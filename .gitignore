@@ -1,0 +1,5 @@
+.env
+goravel
+/storage/temp/
+/storage/logs/
+/database/*.sqlite

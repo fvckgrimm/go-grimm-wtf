@@ -1,0 +1,57 @@
+{{ define "home.tmpl" }}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/assets/icon.png" type="image/x-icon" />
+
+        <title>Grimm's Graveyard</title>
+
+        <meta property="og:site_name" content="Grimm's Graveyard" />
+        <meta property="og:url" content="https://grimm.wtf" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="wtf grimm" />
+        <meta name="twitter:image" content="https://cdn.discordapp.com/emojis/804861885257482260.png?v=1" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <!--<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">-->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/themes.css" rel="stylesheet">
+
+        <!-- Styles -->
+        
+    </head>
+    <body class="font-mono h-screen flex items-center justify-center overflow-hidden">
+        <div class="terminal-container flex justify-center items-center py-5 h-[80vh] w-[80vw]">
+            <div class="terminal h-[110%] w-full p-5 overflow-y-auto rounded-lg opacity-80">
+                <div class="flex justify-between items-start mb-4"> 
+                    <div class="terminal-output m-0 p-[7px] select-none">
+                        <p>Welcome!</p>
+                        <p>Current time is <span id="time"></span></p>
+                        <p>Type 'help' to see the list of available commands.</p>
+                    </div>
+                    <a href="https://www.youtube.com/results?search_query=cat+eating+asmr" target="_blank" class="flex-shrink-0">
+                        <pre class="text-xs leading-none text-accent whitespace-pre font-mono">
+  ／l、             
+（ﾟ､ ｡ ７         
+  l  ~ヽ       
+  じしf_,)ノ</pre>
+                    </a>
+                </div>
+                <div class="terminal-input flex items-center pt-5 select-none">
+                    <div class="prompt flex-shrink-0">user@grimm.wtf$</div>
+                    <form onsubmit="runCommand(event)" class="flex-grow">
+                        <input type="text" id="command-input" autofocus class="border-none px-4 py-2 text-base w-full bg-transparent">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="javascript/script.js"></script>
+    </body>
+</html>
+{{ end }}

@@ -1,0 +1,157 @@
+{{ define "mobile.tmpl" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/icon.png" type="image/x-icon" />
+
+    <title>Grimm's Graveyard</title>
+
+    <meta property="og:site_name" content="Grimm's Graveyard" />
+    <meta property="og:url" content="https://grimm.wtf" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="wtf grimm" />
+    <meta name="twitter:image" content="https://cdn.discordapp.com/emojis/804861885257482260.png?v=1" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/themes.css" rel="stylesheet">
+
+    <!-- Theme Styles -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            flex: 1 0 auto;
+        }
+
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
+    
+</head>
+<body class="font-mono bg-custom text-custom flex flex-col min-h-screen">
+    <div class="content-wrapper flex-grow">
+    <header class="bg-custom text-custom py-4 px-6 mb-6 relative">
+        <div class="flex justify-between items-center">
+            <h1 class="select-none text-xl font-semibold leading-tight">GRIMM.WTF /</h1>
+            
+                <pre id="asciicat" class="select-none asciicat-image text-xs leading-none text-accent whitespace-pre font-mono absolute top-0 right-0 mt-4 mr-[-1]">
+  ／l、             
+（ﾟ､ ｡ ７         
+  l  ~ヽ       
+  じしf_,)ノ
+  <small>open/close</small>
+</pre>
+                <ul id="theme-dropdown">
+                    <li><a href="#" class="block" data-theme="default">Mocha</a></li>
+                    <li><a href="#" class="block" data-theme="frappe">Frappe</a></li>
+                    <li><a href="#" class="block" data-theme="tokyo-night">Tokyo Night</a></li>
+                    <li><a href="#" class="block" data-theme="dracula">Dracula</a></li>
+                    <li><a href="#" class="block" data-theme="gruvbox-dark">Gruvbox Dark</a></li>
+                </ul>
+            
+        </div>
+        <nav class="mt-2 ml-1 select-none">
+            <small><a href="/" class="mr-4">[ home ]</a></small>
+            <small><a href="/blog" class="mr-4">[ posts ]</a></small>
+        </nav>
+    </header>
+    <hr class="border-t border-gray-300 my-6">
+
+    <main class="px-6">
+        <section class="mb-6 py-6 mt-6">
+            <h2 class="text-2xl font-semibold select-none">About</h2>
+            <p class="mt-2 select-none">
+                <!-- Add your about content here -->
+                I'm Grimm, a fake schizo privacy enthusiast, ai script maker, and wannabe hackermanz. You have no reason to be here, please leave ᗜˬᗜ
+            </p>
+        </section>
+
+        <hr class="border-t border-gray-300 my-6">
+
+        <section>
+            <h2 class="text-2xl font-semibold select-none">Recent Posts</h2>
+            <div class="mt-4 space-y-4 select-none" id="recent-posts">
+                {{ range .posts }}
+                <a href="/blog/{{ .Slug }}" class="block p-4 bg-custom shadow-custom rounded-lg">
+                    <h3 class="text-xl font-semibold">{{ .Title }}</h3>
+                    <time class="text-sm">{{ .CreatedAt.Format "January 2, 2006" }}</time>
+                </a>
+                {{ end }}
+                
+            </div>
+            <a href="/blog" class="block mt-4 text-center text-blue">View All Posts</a>
+        </section>
+ 
+    </main>
+    </div>
+
+    <!--<hr class="border-t border-gray-300 my-6">-->
+    <footer class="text-center py-4 text-xs text-gray-500 select-none">
+            <div class="flex justify-center items-center">
+                <!-- Links for frens and contact -->
+                <div class="">
+                    <a href="/rss">rss</a> |
+                    <a href="mailto:its@grimm.wtf" title="its@grimm.wtf">email</a> |
+                    <a href="https://github.com/fvckgrimm" title="https://github.com/fvckgrimm">github</a> |
+                    <a href="https://x.com/grimmdusk" title="https://x.com/grimmdusk">x.com</a> |
+                    <a href="https://degen.wtf" target="_blank">frens</a> |
+                    <a href="https://bsky.app/profile/grimm.wtf" title="https://bsky.app/profile/grimm.wtf">bluesky</a>
+                </div> 
+            </div>
+            <div class="flex justify-center items-center">
+                <small>&copy; 2024 grimm. All rights reserved.</small>
+            </div>
+        </footer>
+
+    <script src="/javascript/mobile.js"></script>
+    <script>
+    // Fetch recent posts and append to the recent posts section
+        fetch('/api/recent-posts')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const recentPostsContainer = document.getElementById('recent-posts');
+                if (data.success && data.response.length > 0) {
+                    data.response.forEach(post => {
+                        const postElement = document.createElement('div');
+                        postElement.classList.add('block', 'p-4', 'bg-custom', 'shadow-custom', 'rounded-lg');
+                        const postDate = new Date(post.created_at);
+                        postElement.innerHTML = `
+                            <h3 class="text-xl font-semibold"><a href="/blog/${post.slug}">${post.title}</a></h3>
+                            <time class="text-sm">${postDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                        `;
+                        recentPostsContainer.appendChild(postElement);
+                    });
+                } else {
+                    const noPostsElement = document.createElement('p');
+                    noPostsElement.textContent = 'No recent posts found.';
+                    recentPostsContainer.appendChild(noPostsElement);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching recent posts:', error);
+                const errorElement = document.createElement('p');
+                errorElement.textContent = `Failed to load recent posts: ${error.message}`;
+                document.getElementById('recent-posts').appendChild(errorElement);
+            });
+    </script>
+</body>
+</html>
+{{ end }}
+
