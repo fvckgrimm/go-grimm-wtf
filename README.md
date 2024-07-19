@@ -2,7 +2,7 @@
 
 <img src="/repo-assets/showcase.gif"/>
 
-This is **NOT** a static site that can be ran on cloudflare/github pages. I **AM** a redpilled $5 VPS fren. I will **NOT** use "serverless", it's literally servers but without the "fun". That being said, I like cloudflare/github pages, last version of my site was using cf pages.
+This is **NOT** a static site that can be ran on cloudflare/github pages. I **AM** a redpilled $5 VPS fren. I will **NOT** use "serverless", it's literally servers but without the "fun". That being said, I like cloudflare/github pages, last version of my site was using cf pages. Also probably easily could turn into a static site but hell if ima do that any time soon.
 
 This is a project using [goravel](https://github.com/goravel/goravel) and [claude](https://claude.ai/) (actually surprised claude knew what goravel was), as I was just working on a project using [Laravel](https://laravel.com/) and have been wanting to rework my personal site using go. Blog posts are written in markdown and can be stored in [/content/posts/](./content/posts/) folder for local file rendering, or in [/storage/app/blog-posts/](./storage/app/blog-posts/) for use with a database if you so please.
 
