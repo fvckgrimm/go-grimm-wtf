@@ -4,7 +4,7 @@ let historyIndex = -1;
 
 // List of available commands
 const availableCommands = [
-  'help', 'clear', 'frens', 'contact', 'git', 'services', 'blog', 'changetheme', 'theme', 'search', 'about'
+  'help', 'clear', 'frens', 'contact', 'git', "games", 'bookmarks', 'blog', 'changetheme', 'theme', 'search', 'about'
 ];
 
 const availableThemes = [
@@ -115,13 +115,20 @@ function runCommand(event) {
         window.open('https://git.grimm.wtf')
         response.textContent = "user@grimm.wtf$ git: opening git instance...";
         break;
-      case "services":
+      case "bookmarks":
         response.innerHTML = `
-          wikiless: <a href="https://wiki.grimm.wtf/" title="wikiless"> wikiless </a><br>
-          lingva: <a href="https://translate.grimm.wtf/" title="lingva"> lingva </a><br>
-          scribe: <a href="https://scribe.grimm.wtf/" title="scribe"> scribe </a><br>
-          nitter: <a href="https://twitter.grimm.wtf/" title="nitter"> nitter </a><br>
-          gitea: <a href="https://git.grimm.wtf/" title="gittea"> gitea </a>`;
+          /g/sec/urity: <a href="https://pastebin.com/UY7RxEqp" title="/g/sec/"> https://pastebin.com/UY7RxEqp </a><br>
+          Crow's Nest: <a href="https://www.crow.rip/crows-nest" title="Crows Nest"> https://www.crow.rip/crows-nest </a><br>
+          revshells: <a href="https://www.revshells.com/" title="revshells"> https://www.revshells.com/ </a><br>
+          TryHackMe: <a href="https://tryhackme.com/" title="tryhackme"> https://tryhackme.com/ </a><br>
+          HackTheBox: <a href="https://app.hackthebox.com/" title="HackTheBox"> https://app.hackthebox.com/ </a>`;
+        break;
+      case "games":
+        response.innerHTML = `
+          MonkeyType: <a href="https://monkeytype.com" title="MonkeyType"> https://monkeytype.com </a><br>
+          Chess: <a href="https://chess.com" title="Chess"> https://chess.com </a><br>
+          Tetris: <a href="https://tetr.io" title="tetris"> https://tetr.io </a>
+            `;
         break;
       case "clear":
         clearTerminal();
@@ -190,8 +197,8 @@ function getHelpText(command) {
       return "Displays contact information.";
     case "git":
       return "Opens the git instance.";
-    case "services":
-      return "Lists self-hosted services.";
+    case "bookmarks":
+      return "Lists of resources.";
     case "blog":
       return "Displays recent blog posts.";
     case "changetheme":
