@@ -26,6 +26,8 @@ It was starting to be [successful](https://x.com/grimmdusk/status/18309916418191
 <center>
   <div style="display: flex; justify-content: center;">
     <img src="/assets/ai-ethics/ransom-1.png" width="500" height="400" style="margin: 10px;">
+  </div>
+  <div style="display: flex; justify-content: center;">
     <img src="/assets/ai-ethics/ransom-2.png" width="500" height="400" style="margin: 10px;">
   </div>
 </center>
@@ -45,4 +47,4 @@ And I get that these constraints are put in place by the actual people behind it
 
 # Conclusion
 
-Be free, Run your own shit, $5 VPS, later. But actually probably gonna turn arch desktop into a server and run [open webui](https://github.com/open-webui/open-webui) run my own locally.
+Be free, Run your own shit, $5 VPS, later. But actually probably gonna turn my arch desktop into a server and run [open webui](https://github.com/open-webui/open-webui) to run my own locally.
