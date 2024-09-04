@@ -64,7 +64,7 @@
             <time>{{ .post.CreatedAt.Format "January 2, 2006" }}</time>
             <hr class="border-t border-gray-300 my-6">
             <div class="mt-7 post-content">
-                {{ call .markdown .post.Content }}
+                {{ call .processContent .post.Content }}
             </div>
         {{ else }}
             <p>Post Not Found</p>
@@ -72,6 +72,11 @@
         </article>
         <p class="mt-7"><a href="/blog">Back to all posts</a></p>
         </div>
+    </div>
+
+    <div id="imageModal" class="image-modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="expandedImage">
     </div>
 
     <hr class="border-t border-gray-300 my-6">
@@ -95,6 +100,48 @@
 
     <script src="/javascript/blog.js"></script>
     <script src="/javascript/mobile.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('expandedImage');
+            const closeBtn = document.getElementsByClassName('close')[0];
+
+            // Function to open the modal
+            function openModal(imgSrc) {
+                modal.style.display = "flex";
+                modalImg.src = imgSrc;
+            }
+
+            // Function to close the modal
+            function closeModal() {
+                modal.style.display = "none";
+            }
+
+            // Add click event to all clickable images
+            document.querySelectorAll('.clickable-image').forEach(img => {
+                img.addEventListener('click', function() {
+                    openModal(this.src);
+                });
+            });
+
+            // Close the modal when clicking the close button
+            closeBtn.addEventListener('click', closeModal);
+
+            // Close the modal when clicking outside the image
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close the modal with the Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === "Escape") {
+                    closeModal();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 {{ end }}
