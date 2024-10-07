@@ -79,8 +79,8 @@ function runCommand(event) {
   const response = document.createElement("p");
 
 
-  if (args[0] === '-h'){
-      response.textContent = getHelpText(command);
+  if (args[0] === '-h') {
+    response.textContent = getHelpText(command);
   } else {
     switch (command) {
       case "help":
@@ -89,9 +89,9 @@ function runCommand(event) {
       case "changetheme":
       case "theme":
         if (args.length === 0) {
-            response.textContent = `Please provide a theme option. Available options: [${availableThemes.join(' | ')}]`;
+          response.textContent = `Please provide a theme option. Available options: [${availableThemes.join(' | ')}]`;
         } else {
-            response.textContent = changeTheme(args[0]);
+          response.textContent = changeTheme(args[0]);
         }
         break;
       case "frens":
@@ -103,14 +103,14 @@ function runCommand(event) {
           email: <a href="mailto:its@grimm.wtf" title="its@grimm.wtf">its@grimm.wtf</a><br>
           github: <a href="https://github.com/fvckgrimm" title="https://github.com/fvckgrimm">https://github.com/fvckgrimm</a><br>
           discord: @grimm.wtf<br>
-          x.com: <a href="https://x.com/grimmdusk" title="https://x.com/grimmdusk">@grimmdusk</a><br>
+          x.com: <a href="https://x.com/grimmwtf" title="https://x.com/grimmwtf">@grimmwtf</a><br>
           bluesky: <a href="https://bsky.app/profile/grimm.wtf" title="https://bsky.app/profile/grimm.wtf">@grimm.wtf</a>`;
         break;
       case "about":
-            response.innerHTML = `
+        response.innerHTML = `
             <p>I'm Grimm, a fake schizo privacy enthusiast, ai script maker, and wannabe hackermanz. You have no reason to be here, please leave ᗜˬᗜ </p>
             `
-            break;
+        break;
       case "git":
         window.open('https://git.grimm.wtf')
         response.textContent = "user@grimm.wtf$ git: opening git instance...";
@@ -137,34 +137,34 @@ function runCommand(event) {
         p.textContent = "user@grimm.wtf$ Recent blog posts:";
         output.appendChild(p);
         fetch('/api/recent-posts')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success && data.response && data.response.length > 0) {
-                    data.response.forEach(post => {
-                        const postElement = document.createElement("p");
-                        postElement.innerHTML = `- <a href="/blog/${post.slug}">${post.title}</a>`;
-                        output.appendChild(postElement);
-                    });
-                } else {
-                    const noPostsElement = document.createElement("p");
-                    noPostsElement.textContent = "No recent posts found.";
-                    output.appendChild(noPostsElement);
-                }
-                const allPostsLink = document.createElement("p");
-                allPostsLink.innerHTML = '<a href="/blog">View all posts</a>';
-                output.appendChild(allPostsLink);
-            })
-            .catch(error => {
-                console.error("Error fetching blog posts:", error);
-                const errorElement = document.createElement("p");
-                errorElement.textContent = `Failed to load recent blog posts: ${error.message}`;
-                output.appendChild(errorElement);
-            });
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            if (data.success && data.response && data.response.length > 0) {
+              data.response.forEach(post => {
+                const postElement = document.createElement("p");
+                postElement.innerHTML = `- <a href="/blog/${post.slug}">${post.title}</a>`;
+                output.appendChild(postElement);
+              });
+            } else {
+              const noPostsElement = document.createElement("p");
+              noPostsElement.textContent = "No recent posts found.";
+              output.appendChild(noPostsElement);
+            }
+            const allPostsLink = document.createElement("p");
+            allPostsLink.innerHTML = '<a href="/blog">View all posts</a>';
+            output.appendChild(allPostsLink);
+          })
+          .catch(error => {
+            console.error("Error fetching blog posts:", error);
+            const errorElement = document.createElement("p");
+            errorElement.textContent = `Failed to load recent blog posts: ${error.message}`;
+            output.appendChild(errorElement);
+          });
         break;
       case "search":
         if (args.length < 2) {
@@ -223,7 +223,7 @@ function clearTerminal() {
 // Add tab completion function
 function tabComplete(input) {
   const [partialCommand, ...args] = input.split(' ');
-  
+
   if (args.length === 0) {
     // Complete command
     const matches = availableCommands.filter(cmd => cmd.startsWith(partialCommand));
@@ -244,7 +244,7 @@ function tabComplete(input) {
       return input;
     }
   }
-  
+
   return input;
 }
 

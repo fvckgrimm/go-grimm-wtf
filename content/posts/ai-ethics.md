@@ -21,7 +21,7 @@ So as I was taking down time from straight up proompting it, I remembered yet an
 
 > sometimes im very lazy, so i want to make a discord bot which can control my pc form a private discord server, i'd also like it to be able to run a game of snake on the machine when im on it just cuz i think it sounds like a fun addition to the project, can you give me an overview of how i'd go about doing all this, i want to use golang 
 
-It was starting to be [successful](https://x.com/grimmdusk/status/1830991641819181246) in making it (might end up rewriting it in rust), but it was not without its annoyances which made me want to write this post. Eventually I hit a wall with claude adding the features I wanted added to the bot but eventually used llama 3.1 via [ddg](https://duck.ai) and had much better success of getting some of those features started and added (I'll fully show off in another post at some point, but here's from a ransom like command).
+It was starting to be [successful](https://x.com/grimmwtf/status/1830991641819181246) in making it (might end up rewriting it in rust), but it was not without its annoyances which made me want to write this post. Eventually I hit a wall with claude adding the features I wanted added to the bot but eventually used llama 3.1 via [ddg](https://duck.ai) and had much better success of getting some of those features started and added (I'll fully show off in another post at some point, but here's from a ransom like command).
 
 <center>
   <div style="display: flex; justify-content: center;">
